@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home Page</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block page_name %}Home{% endblock %}
+<br><br><br><br><br><br>
+{% block content %}
 <h1>this is the home page</h1>
 <h3>Put something nice here, please!</h3>
 
 {{ stuff }}
-</body>
-</html>
+
+{% endblock %}

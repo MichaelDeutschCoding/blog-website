@@ -1,12 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-</head>
-<body>
 
-Here's where you'd see a registration form to sign up
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block page_name %}Register{% endblock %}
+
+{% block content %}
+
+<form method="POST" class="text-center border border-light p-5" action="/sign-up">
+    {{ register_form.hidden_tag() }}
+
+    <p class="h4 mb-4">Register Now to Join the Hottest Blogging Platform on the Interwebs!</p>
+
+    <div class="form-row mb-4">
+        <div class="col-3">{{ register_form.first_name.label }} </div>
+        <div class="col">{{ register_form.first_name(size=60)}}</div>
+    </div>
+    <div class="form-row mb-4">
+        <div class="col-3">{{ register_form.last_name.label }} </div>
+        <div class="col">{{ register_form.last_name(size=60)}}</div>
+    </div>
+    <div class="form-row mb-4">
+        <div class="col-3">{{ register_form.username.label }} </div>
+        <div class="col">{{ register_form.username(size=60)}}</div>
+    </div>
+    <div class="form-row mb-1">
+        <div class="col-3">{{ register_form.password.label }} </div>
+        <div class="col">{{ register_form.password(size=60)}}</div>
+    </div>
+    <div>
+        <small class="form-text text-muted mb-4">At least 8 characters and 1 digit</small>
+    </div>
+    <div class="form-row mb-4">
+        <div class="col-3">{{ register_form.confirm_password.label }} </div>
+        <div class="col">{{ register_form.confirm_password(size=60)}}</div>
+    </div>
+    <div class="form-row mb-4">
+        <div class="col-3">{{ register_form.email.label }} </div>
+        <div class="col">{{ register_form.email(size=60)}}</div>
+    </div>
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
+        <label class="custom-control-label" for="defaultRegisterFormNewsletter">Subscribe to our newsletter</label>
+    </div>
+    <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
+</form>
+<!-- Default form register -->
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block page_name %}Login{% endblock %}
+
+{% block content %}
+<h1>LOG IN PAGE</h1>
+<h3>Put something nice here, please!</h3>
+
+<form action="/login" method="POST" class="form-inline my-2 my-lg-0">
+    {{ login_form.csrf_token }}
+    {{ login_form.email.label }} {{ login_form.email(size=20) }}<br/>
+    {{ login_form.password.label }} {{ login_form.password(size=20) }}<br/>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+</form>
+
+{% endblock %}

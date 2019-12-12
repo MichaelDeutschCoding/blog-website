@@ -8,6 +8,7 @@ class User(db.Model):
     f_name = db.Column(db.String(64), nullable=False)
     l_name = db.Column(db.String(64), nullable=False)
     email = db.Column(db.String(128), nullable=False, unique=True)
+    password = db.Column(db.Binary(), nullable=False)
     registration_date = db.Column(db.DateTime(timezone=False), server_default=func.now())
     blogs = db.relationship('blog', backref='user', lazy=True)
 
@@ -22,7 +23,7 @@ tags = db.Table('tags',
 
 class Blog(db.Model):
     blog_id = db.Column(db.Integer(), primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('User.user_id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
     title = db.Column(db.String(256), nullable=False)
     content = db.Column(db.Text, nullable=False)
     tags = db.relationship('tag', secondary=tags, lazy='subquery',

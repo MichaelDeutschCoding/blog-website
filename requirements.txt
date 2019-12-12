@@ -4,3 +4,4 @@ flask_migrate>=2.5.2
 requests>=2.22
 psycopg2-binary
 Flask-WTF
+Flask-Bootstrap4>=4.0.0
